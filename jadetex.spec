@@ -2,37 +2,43 @@ Summary:	LaTeX macros for converting Jade TeX output into DVI/PS/PDF
 Summary(pl):	Makra LaTeXa do konwersji Jade TeXa do DVI/PS/PDF
 Name:		jadetex
 Version:	3.13
-Release:	2
+Release:	3
 License:	Copyright (C) 1995,1996,1997,1998,1999,2000,2001 Sebastian Rahtz <s.rahtz@elsevier.co.uk>
 Group:		Applications/Publishing/SGML
 Source0:	http://dl.sourceforge.net/jadetex/%{name}-%{version}.tar.gz
 # Source0-md5:	634dfc172fbf66a6976e2c2c60e2d198
 Patch1:		%{name}-latin2.patch
+Patch2:		%{name}-etex.patch
+Patch3:		%{name}-texmfvar.patch
 URL:		http://jadetex.sourceforge.net/
-BuildRequires:	tetex-csplain
-BuildRequires:	tetex-fonts-cmcyr
-BuildRequires:	tetex-fonts-jknappen
-BuildRequires:	tetex-format-latex
-BuildRequires:	tetex-format-pdflatex
-BuildRequires:	tetex-format-pdftex
-BuildRequires:	tetex-format-plain
-BuildRequires:	tetex-latex-ams
-BuildRequires:	tetex-latex-carlisle
-BuildRequires:	tetex-latex-cyrillic
-BuildRequires:	tetex-latex-psnfss
-BuildRequires:	tetex-metafont
-BuildRequires:	tetex-pdftex
-BuildRequires:	tetex-tex-babel
-BuildRequires:	tetex-tex-ruhyphen
-BuildRequires:	tetex-tex-ukrhyph
+BuildRequires:	tetex-csplain >= 1:3.0
+BuildRequires:	tetex-fonts-cmcyr >= 1:3.0
+BuildRequires:	tetex-fonts-jknappen >= 1:3.0
+BuildRequires:	tetex-format-latex >= 1:3.0
+BuildRequires:	tetex-format-pdflatex >= 1:3.0
+BuildRequires:	tetex-format-pdftex >= 1:3.0
+BuildRequires:	tetex-format-plain >= 1:3.0
+BuildRequires:	tetex-latex-ams >= 1:3.0
+BuildRequires:	tetex-latex-carlisle >= 1:3.0
+BuildRequires:	tetex-latex-cyrillic >= 1:3.0
+BuildRequires:	tetex-latex-psnfss >= 1:3.0
+BuildRequires:	tetex-latex-marvosym >= 1:3.0
+BuildRequires:	tetex-metafont >= 1:3.0
+BuildRequires:	tetex-pdftex >= 1:3.0
+BuildRequires:	tetex-tex-babel >= 1:3.0
+BuildRequires:	tetex-tex-ruhyphen >= 1:3.0
+BuildRequires:	tetex-tex-ukrhyph >= 1:3.0
 PreReq:		sh-utils
 Requires:	sgml-common
 %requires_eq	tetex
 %requires_eq	tetex-latex
-Requires:	tetex-pdftex
+Requires:	tetex-pdftex >= 1:3.0
 AutoReqProv:	no
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define	texmf	/usr/share/texmf
+%define texmfsysvar /var/lib/texmf
 
 %description
 JadeTeX contains the additional LaTeX macros necessary for taking Jade
@@ -45,13 +51,15 @@ otrzymanych z Jade TeXa i przetworzenia ich jako plików LaTeXa.
 %prep
 %setup -q
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 %{__make} basic jadetex.fmt pdfjadetex.fmt
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/texmf/{web2c,tex/jadetex} \
+install -d $RPM_BUILD_ROOT%{texmf}/web2c,%{texmfsysvar}/tex/jadetex} \
 	   $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 %{__make} install \
@@ -59,8 +67,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/texmf/{web2c,tex/jadetex} \
 
 install jadetex.1 pdfjadetex.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-ln -s tex $RPM_BUILD_ROOT%{_bindir}/jadetex
-ln -s pdftex $RPM_BUILD_ROOT%{_bindir}/pdfjadetex
+ln -s etex $RPM_BUILD_ROOT%{_bindir}/jadetex
+ln -s pdfetex $RPM_BUILD_ROOT%{_bindir}/pdfjadetex
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -75,6 +83,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog ChangeLog-old
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/texmf/web2c/*.fmt
-%{_datadir}/texmf/tex/jadetex
+%{texmfsysvar}/web2c/*.fmt
+%{texmf}/tex/jadetex
 %{_mandir}/man1/*
