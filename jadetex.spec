@@ -25,7 +25,7 @@ BuildRequires:	tetex-latex-psnfss
 BuildRequires:	tetex-metafont
 BuildRequires:	tetex-pdftex
 BuildRequires:	tetex-tex-babel
-BuildRequires:	tetex-tex-ruhyphe
+BuildRequires:	tetex-tex-ruhyphen
 BuildRequires:	tetex-tex-ukrhyph
 Autoreqprov:	no
 Prereq:		sh-utils
