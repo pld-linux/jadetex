@@ -29,12 +29,12 @@ JadeTeX zawiera dodatkowe makra LaTeX potrzebne do konwersji plików
 otrzymanych z Jade TeX i przetworzenia ich jako plików LaTeX.
 
 %prep
-%setup -q -c -T 
+%setup -q -c -T
 unzip -qa %{SOURCE0}
-%patch1 -p1 
+%patch1 -p1
 
 %build
-tex jadetex.ins 
+tex jadetex.ins
 # 'echo' is temporary fix for some latex errors
 # they are not important and can be ignored
 echo | tex -ini "&hugelatex" -progname=jadetex jadetex.ini || :
@@ -45,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/texmf/{web2c,tex/jadetex} \
 	   $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
-cp jadetex.1 pdfjadetex.1 ${RPM_BUILD_ROOT}%{_mandir}/man1 
+cp jadetex.1 pdfjadetex.1 ${RPM_BUILD_ROOT}%{_mandir}/man1
 # orig
 mv pdfjadetex.fmt jadetex.fmt $RPM_BUILD_ROOT%{_datadir}/texmf/web2c
 cp dsssl.def jadetex.ltx $RPM_BUILD_ROOT%{_datadir}/texmf/tex/jadetex
