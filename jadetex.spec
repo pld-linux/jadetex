@@ -1,12 +1,13 @@
-Summary:	LaTeX macros for converting Jade TeX output into DVI/PS/PDF.
+Summary:	LaTeX macros for converting Jade TeX output into DVI/PS/PDF
 Name:		jadetex
 Version:	2.15
 Release:	1
-Requires:	sgml-common, tetex >= 0.9, tetex-latex >= 0.9
 Copyright:	Copyright (C) 1995,1996,1997,1998 Sebastian Rahtz <s.rahtz@elsevier.co.uk>
-Source0:	ftp://ftp.duke.edu/tex-archive/macros/%{name}.tar.bz2
-Patch:		%{name}-i18n.patch
 Group:		Applications/Publishing/SGML
+Group(pl):	Aplikacje/Publikowanie/SGML
+Source0:	ftp://ftp.duke.edu/tex-archive/macros/%{name}.tar.bz2
+Patch0:		%{name}-i18n.patch
+Requires:	sgml-common, tetex >= 0.9, tetex-latex >= 0.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -18,8 +19,6 @@ TeX output files and processing them as LaTeX files.
 %patch0 -p1 
 
 %build
-#make -f Makefile.jadetex install DESTDIR=$RPM_BUILD_ROOT
-
 # temporary fix for some latex errors
 # they are not important and can be ignored
 tex jadetex.ins 
@@ -36,10 +35,8 @@ rm -rf $RPM_BUILD_ROOT
 ##export TT=`kpsewhich -expand-var '$TEXMFMAIN'`
 # make install DESTDIR=$RPM_BUILD_ROOT
 
-install -d  $RPM_BUILD_ROOT%{_datadir}/texmf/web2c 
-install -d  $RPM_BUILD_ROOT%{_datadir}/texmf/tex/jadetex
-install -d ${RPM_BUILD_ROOT}%{_bindir}
-install -d ${RPM_BUILD_ROOT}%{_mandir}/man1
+install -d $RPM_BUILD_ROOT%{_datadir}/texmf/{web2c,ex/jadetex} \
+	$RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 mv pdfjadetex.fmt jadetex.fmt $RPM_BUILD_ROOT%{_datadir}/texmf/web2c
 mv jadetex.1 pdfjadetex.1 ${RPM_BUILD_ROOT}%{_mandir}/man1 
@@ -50,7 +47,7 @@ cp dsssl.def jadetex.ltx $RPM_BUILD_ROOT%{_datadir}/texmf/tex/jadetex
 ln -s tex ${RPM_BUILD_ROOT}%{_bindir}/jadetex
 ln -s pdftex ${RPM_BUILD_ROOT}%{_bindir}/pdfjadetex
 
-gzip -9nf ${RPM_BUILD_ROOT}%{_mandir}/man1/*.1
+gzip -9nf ${RPM_BUILD_ROOT}%{_mandir}/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -64,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 #%doc ChangeLog
+%attr(755,root,root) %{_bindir}/*
 %{_datadir}/texmf/web2c/*
 %{_datadir}/texmf/tex/jadetex
-%{_bindir}/*
 %{_mandir}/man1/*
