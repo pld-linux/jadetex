@@ -7,9 +7,10 @@ License:	Copyright (C) 1995,1996,1997,1998,1999,2000,2001 Sebastian Rahtz <s.rah
 Group:		Applications/Publishing/SGML
 Group(de):	Applikationen/Publizieren/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
-URL:		http://www.tug.org/applications/jadetex/
 Source0:	http://www.tug.org/applications/%{name}/%{name}.zip
+#Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/%{name}/%{name}-%{version}.tar.gz
 Patch1:		%{name}-latin2.patch
+URL:		http://jadetex.sourceforge.net/
 Requires:	sgml-common
 %requires_eq	tetex
 %requires_eq	tetex-latex
