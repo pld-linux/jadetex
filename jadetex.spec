@@ -3,7 +3,7 @@ Summary(pl):	Makra LaTeX do konwersji Jade Tex do DVI/PS/PDF
 Name:		jadetex
 Version:	3.5
 Release:	2
-Copyright:	Copyright (C) 1995,1996,1997,1998,1999,2000,2001 Sebastian Rahtz <s.rahtz@elsevier.co.uk>
+License:	Copyright (C) 1995,1996,1997,1998,1999,2000,2001 Sebastian Rahtz <s.rahtz@elsevier.co.uk>
 Group:		Applications/Publishing/SGML
 Group(de):	Applikationen/Publizieren/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
