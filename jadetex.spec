@@ -30,7 +30,7 @@ PreReq:		sh-utils
 Requires:	sgml-common
 %requires_eq	tetex
 %requires_eq	tetex-latex
-Autoreqprov:	no
+AutoReqProv:	no
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
