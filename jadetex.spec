@@ -43,7 +43,7 @@ JadeTeX zawiera dodatkowe makra LaTeX potrzebne do konwersji plików
 otrzymanych z Jade TeX i przetworzenia ich jako plików LaTeX.
 
 %prep
-%setup -q 
+%setup -q
 %patch1 -p1
 
 %build
