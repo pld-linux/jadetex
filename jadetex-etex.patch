@@ -1,0 +1,19 @@
+--- jadetex-3.13/Makefile.wiget	2005-02-08 20:47:30.444048028 +0100
++++ jadetex-3.13/Makefile	2005-02-08 20:47:55.268801845 +0100
+@@ -1,13 +1,13 @@
+ default: basic
+ 
+ basic: jadetex.ltx
+-	tex jadetex.ins
++	etex jadetex.ins
+ 
+ jadetex.fmt: basic
+-	tex -ini -progname=jadetex "&latex" jadetex.ini
++	etex -ini -progname=jadetex "&latex" jadetex.ini
+ 
+ pdfjadetex.fmt: basic
+-	pdftex -ini -progname=pdfjadetex "&pdflatex" pdfjadetex.ini
++	pdfetex -ini -progname=pdfjadetex "&pdflatex" pdfjadetex.ini
+ 
+ install: jadetex.fmt pdfjadetex.fmt
+ 	(TT=$$DESTDIR/`kpsewhich -expand-var '$$TEXMFMAIN'`; \
