@@ -9,6 +9,7 @@ Source0:	ftp://ftp.duke.edu/tex-archive/macros/%{name}.tar.bz2
 Patch0:		%{name}-i18n.patch
 Requires:	sgml-common, tetex >= 0.9, tetex-latex >= 0.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:	hugelatex
 
 %description
 JadeTeX contains the additional LaTeX macros necessary for taking Jade
