@@ -1,4 +1,5 @@
 Summary:	LaTeX macros for converting Jade TeX output into DVI/PS/PDF
+Summary(pl):	Makra LaTeX do konwersji Jade Tex do DVI/PS/PDF
 Name:		jadetex
 Version:	3.5
 Release:	2
@@ -7,19 +8,26 @@ Group:		Applications/Publishing/SGML
 Group(de):	Applikationen/Publizieren/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
 URL:		http://www.tug.org/applications/jadetex/
-Source0:	http://www.tug.org/applications/%{name}/jadetex.zip
+Source0:	http://www.tug.org/applications/%{name}/%{name}.zip
 Patch1:		%{name}-latin2.patch
-Requires:	sgml-common, tetex >= 0.9, tetex-latex >= 0.9
+Requires:	sgml-common
+%requires_eq	tetex
+%requires_eq	tetex-latex
 BuildRequires:	hugelatex
 BuildRequires:	tetex-pdftex
 BuildRequires:	unzip
 Autoreqprov:	no
+Prereq:		sh-utils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 JadeTeX contains the additional LaTeX macros necessary for taking Jade
 TeX output files and processing them as LaTeX files.
+
+%description -l pl
+JadeTeX zawiera dodatkowe makra LaTeX potrzebne do konwersji plików
+otrzymanych z Jade TeX i przetworzenia ich jako plików LaTeX.
 
 %prep
 %setup -q -c -T 
