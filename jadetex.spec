@@ -2,7 +2,7 @@ Summary:	LaTeX macros for converting Jade TeX output into DVI/PS/PDF
 Summary(pl):	Makra LaTeX do konwersji Jade Tex do DVI/PS/PDF
 Name:		jadetex
 Version:	3.5
-Release:	2
+Release:	3
 License:	Copyright (C) 1995,1996,1997,1998,1999,2000,2001 Sebastian Rahtz <s.rahtz@elsevier.co.uk>
 Group:		Applications/Publishing/SGML
 Source0:	http://www.tug.org/applications/%{name}/%{name}.zip
@@ -14,6 +14,17 @@ Requires:	sgml-common
 %requires_eq	tetex-latex
 BuildRequires:	hugelatex
 BuildRequires:	tetex-pdftex
+BuildRequires:	tetex-format-plain
+BuildRequires:	tetex-format-pdftex
+BuildRequires:	tetex-format-pdflatex
+BuildRequires:	tetex-latex-carlisle
+BuildRequires:	tetex-tex-babel
+BuildRequires:  tetex-latex-cyrillic
+BuildRequires:	tetex-latex-ams
+BuildRequires:	tetex-latex-psnfss
+BuildRequires:	tetex-metafont
+BuildRequires:	tetex-fonts-cmcyr
+BuildRequires:	tetex-fonts-jknappen
 BuildRequires:	unzip
 Autoreqprov:	no
 Prereq:		sh-utils
@@ -34,11 +45,12 @@ unzip -qa %{SOURCE0}
 %patch1 -p1
 
 %build
-tex jadetex.ins
+make
+#tex jadetex.ins
 # 'echo' is temporary fix for some latex errors
 # they are not important and can be ignored
-echo | tex -ini "&hugelatex" -progname=jadetex jadetex.ini || :
-echo | pdftex -ini "&pdflatex" -progname=pdfjadetex pdfjadetex.ini || :
+#echo | tex -ini "&hugelatex" -progname=jadetex jadetex.ini || :
+#echo | pdftex -ini "&pdflatex" -progname=pdfjadetex pdfjadetex.ini || :
 
 %install
 rm -rf $RPM_BUILD_ROOT
