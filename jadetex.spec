@@ -11,6 +11,7 @@ Patch1:		%{name}-latin2.patch
 Requires:	sgml-common, tetex >= 0.9, tetex-latex >= 0.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	hugelatex
+BuildRequires:	tetex-pdftex
 Autoreqprov:	no
 BuildArch:	noarch
 
