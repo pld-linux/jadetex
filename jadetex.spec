@@ -2,7 +2,7 @@ Summary:	LaTeX macros for converting Jade TeX output into DVI/PS/PDF
 Summary(pl):	Makra LaTeX do konwersji Jade Tex do DVI/PS/PDF
 Name:		jadetex
 Version:	3.12
-Release:	2
+Release:	3
 License:	Copyright (C) 1995,1996,1997,1998,1999,2000,2001 Sebastian Rahtz <s.rahtz@elsevier.co.uk>
 Group:		Applications/Publishing/SGML
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
