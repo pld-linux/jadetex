@@ -1,13 +1,13 @@
 Summary:	LaTeX macros for converting Jade TeX output into DVI/PS/PDF
 Name:		jadetex
 Version:	2.15
-Release:	2
+Release:	3
 Copyright:	Copyright (C) 1995,1996,1997,1998 Sebastian Rahtz <s.rahtz@elsevier.co.uk>
 Group:		Applications/Publishing/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
 Source0:	ftp://ftp.duke.edu/tex-archive/macros/%{name}.tar.bz2
-Source1:	%{name}-latin2.dtx
 Patch0:		%{name}-i18n.patch
+Patch1:		%{name}-latin2.patch
 Requires:	sgml-common, tetex >= 0.9, tetex-latex >= 0.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	hugelatex
@@ -20,11 +20,9 @@ TeX output files and processing them as LaTeX files.
 %prep
 %setup -q -n jadetex
 %patch0 -p1 
+%patch1 -p1 
 
 %build
-
-# hack jadetex to process latin2
- cp -f %{SOURCE1} ./jadetex.dtx
 
 tex jadetex.ins 
 # 'echo' is temporary fix for some latex errors
