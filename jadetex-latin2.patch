@@ -1,0 +1,137 @@
+diff -ur jadetex/jadetex.dtx jadetex.new/jadetex.dtx
+--- jadetex/jadetex.dtx	Sat Jun 10 11:40:26 2000
++++ jadetex.new/jadetex.dtx	Sat Jun 10 12:23:22 2000
+@@ -2210,21 +2210,20 @@
+ \providecommand{\mathordfeminine}{\mathrm{^{\underline{a}}}}
+ \DeclareInputText{"0A0}{\nobreakspace}
+ \DeclareInputMath{"0B0}{\mathdegree}
+-\DeclareInputText{"0A1}{\textexclamdown}
+-\DeclareInputMath{"0B1}{\ensuremath{\pm}}
++%\DeclareInputMath{"0B1}{\ensuremath{\pm}}
+ \DeclareInputText{"0A2}{\textcent}
+ \DeclareInputMath{"0B2}{\mathtwosuperior}
+ \DeclareInputText{"0B2}{\ensuremath{\mathtwosuperior}}
+-\DeclareInputText{"0A3}{\pounds}
++%\DeclareInputText{"0A3}{\pounds}
+ \DeclareInputMath{"0B3}{\maththreesuperior}
+-\DeclareInputText{"0B3}{\ensuremath{\maththreesuperior}}
++%\DeclareInputText{"0B3}{\ensuremath{\maththreesuperior}}
+ \DeclareInputText{"0A4}{\textcurrency}
+ \DeclareInputText{"0B4}{\@tabacckludge'{}}
+ \DeclareInputText{"0A5}{\textyen}
+ \DeclareInputMath{"0B5}{\mu}
+ \DeclareInputText{"0B5}{\textmu}
+-\DeclareInputText{"0A6}{\textbrokenbar}
+-\DeclareInputText{"0B6}{\P}
++%\DeclareInputText{"0A6}{\textbrokenbar}
++%\DeclareInputText{"0B6}{\P}
+ \DeclareInputText{"0A7}{\S}
+ \DeclareInputText{"0B7}{\textperiodcentered}
+ \DeclareInputText{"0A8}{\"{}}
+@@ -2238,28 +2237,28 @@
+ \DeclareInputText{"0BA}{\ensuremath{\mathordmasculine}}
+ \DeclareInputText{"0AB}{\guillemotleft}
+ \DeclareInputText{"0BB}{\guillemotright}
+-\DeclareInputMath{"0AC}{\lnot}
+-\DeclareInputText{"0AC}{\ensuremath{\lnot}}
+-\DeclareInputText{"0BC}{\textonequarter}
++%\DeclareInputMath{"0AC}{\lnot}
++%\DeclareInputText{"0AC}{\ensuremath{\lnot}}
++%\DeclareInputText{"0BC}{\textonequarter}
+ \DeclareInputText{"0AD}{\-}
+ \DeclareInputText{"0BD}{\textonehalf}
+ \DeclareInputText{"0AE}{\textregistered}
+ \DeclareInputText{"0BE}{\textthreequarters}
+-\DeclareInputText{"0AF}{\ifmmode\else\@tabacckludge={}\fi}
+-\DeclareInputText{"0BF}{\textquestiondown}
++%\DeclareInputText{"0AF}{\ifmmode\else\@tabacckludge={}\fi}
++%\DeclareInputText{"0BF}{\textquestiondown}
+ \DeclareInputText{"0C0}{\@tabacckludge`A}
+ \DeclareInputText{"0D0}{\DH}
+ \DeclareInputText{"0C1}{\@tabacckludge'A}
+-\DeclareInputText{"0D1}{\~N}
++%\DeclareInputText{"0D1}{\~N}
+ \DeclareInputText{"0C2}{\^A}
+ \DeclareInputText{"0D2}{\@tabacckludge`O}
+ \DeclareInputText{"0C3}{\~A}
+-\DeclareInputText{"0D3}{\@tabacckludge'O}
++%\DeclareInputText{"0D3}{\@tabacckludge'O}
+ \DeclareInputText{"0C4}{\"A}
+ \DeclareInputText{"0D4}{\^O}
+ \DeclareInputText{"0C5}{\AA}
+ \DeclareInputText{"0D5}{\~O}
+-\DeclareInputText{"0C6}{\AE}
++%\DeclareInputText{"0C6}{\AE}
+ \DeclareInputText{"0D6}{\"O}
+ \DeclareInputText{"0C7}{\c C}
+ \DeclareInputMath{"0D7}{\ensuremath{\times}}
+@@ -2267,7 +2266,7 @@
+ \DeclareInputText{"0D8}{\O}
+ \DeclareInputText{"0C9}{\@tabacckludge'E}
+ \DeclareInputText{"0D9}{\@tabacckludge`U}
+-\DeclareInputText{"0CA}{\^E}
++%\DeclareInputText{"0CA}{\^E}
+ \DeclareInputText{"0DA}{\@tabacckludge'U}
+ \DeclareInputText{"0CB}{\"E}
+ \DeclareInputText{"0DB}{\^U}
+@@ -2282,16 +2281,16 @@
+ \DeclareInputText{"0E0}{\@tabacckludge`a}
+ \DeclareInputText{"0F0}{\dh}
+ \DeclareInputText{"0E1}{\@tabacckludge'a}
+-\DeclareInputText{"0F1}{\~n}
++%\DeclareInputText{"0F1}{\~n}
+ \DeclareInputText{"0E2}{\^a}
+ \DeclareInputText{"0F2}{\@tabacckludge`o}
+ \DeclareInputText{"0E3}{\~a}
+-\DeclareInputText{"0F3}{\@tabacckludge'o}
++%\DeclareInputText{"0F3}{\@tabacckludge'o}
+ \DeclareInputText{"0E4}{\"a}
+ \DeclareInputText{"0F4}{\^o}
+ \DeclareInputText{"0E5}{\aa}
+ \DeclareInputText{"0F5}{\~o}
+-\DeclareInputText{"0E6}{\ae}
++%\DeclareInputText{"0E6}{\ae}
+ \DeclareInputText{"0F6}{\"o}
+ \DeclareInputText{"0E7}{\c c}
+ \DeclareInputMath{"0F7}{\ensuremath{\div}}
+@@ -2299,7 +2298,7 @@
+ \DeclareInputText{"0F8}{\o}
+ \DeclareInputText{"0E9}{\@tabacckludge'e}
+ \DeclareInputText{"0F9}{\@tabacckludge`u}
+-\DeclareInputText{"0EA}{\^e}
++%\DeclareInputText{"0EA}{\^e}
+ \DeclareInputText{"0FA}{\@tabacckludge'u}
+ \DeclareInputText{"0EB}{\"e}
+ \DeclareInputText{"0FB}{\^u}
+@@ -2311,6 +2310,30 @@
+ \DeclareInputText{"0FE}{\th}
+ \DeclareInputText{"0EF}{\"\i}
+ \DeclareInputText{"0FF}{\"y}
++
++% polish big letters
++\DeclareInputText{"0A1}{\k{A}} %Aogonek
++\DeclareInputText{"0CA}{\k{E}} %Eogonek
++\DeclareInputText{"0A6}{\'S} %Sacute
++\DeclareInputText{"0C6}{\'C} %Cacute
++\DeclareInputText{"0D1}{\'N} %Nacute
++\DeclareInputText{"0AF}{\.Z} %Zdot
++\DeclareInputText{"0AC}{\'Z} %Zacute
++\DeclareInputText{"0D3}{\'O} %Oacute
++\DeclareInputText{"0A3}{\L} %Lstroke
++% polish small letters
++\DeclareInputText{"0B1}{\k{a}} %aogonek
++\DeclareInputText{"0EA}{\k{e}} %eogonek
++\DeclareInputText{"0B6}{\'s} %sacute
++\DeclareInputText{"0E6}{\'c} %cacute
++\DeclareInputText{"0F1}{\'n} %nacute
++\DeclareInputText{"0BF}{\.z} %zdot
++\DeclareInputText{"0BC}{\'z} %zacute
++\DeclareInputText{"0F3}{\'o} %oacute
++\DeclareInputText{"0B3}{\l} %lstroke
++
++
++
+ %</dsssldef>
+ %    \end{macrocode}
+ % \Finale
+Only in jadetex.new: jadetex.dtx~
