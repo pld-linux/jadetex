@@ -65,8 +65,6 @@ cp dsssl.def jadetex.ltx $RPM_BUILD_ROOT%{_datadir}/texmf/tex/jadetex
 ln -s tex ${RPM_BUILD_ROOT}%{_bindir}/jadetex
 ln -s pdftex ${RPM_BUILD_ROOT}%{_bindir}/pdfjadetex
 
-gzip -9nf ChangeLog
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -78,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/texmf/web2c/*
 %{_datadir}/texmf/tex/jadetex
