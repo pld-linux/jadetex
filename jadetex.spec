@@ -12,6 +12,7 @@ Patch1:		%{name}-latin2.patch
 Requires:	sgml-common, tetex >= 0.9, tetex-latex >= 0.9
 BuildRequires:	hugelatex
 BuildRequires:	tetex-pdftex
+BuildRequires:	unzip
 Autoreqprov:	no
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -21,7 +22,8 @@ JadeTeX contains the additional LaTeX macros necessary for taking Jade
 TeX output files and processing them as LaTeX files.
 
 %prep
-%setup -q -c 
+%setup -q -c -T 
+unzip -qa %{SOURCE0}
 %patch1 -p1 
 
 %build
