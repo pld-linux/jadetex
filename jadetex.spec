@@ -6,7 +6,7 @@ Release:	2
 License:	Copyright (C) 1995,1996,1997,1998,1999,2000,2001 Sebastian Rahtz <s.rahtz@elsevier.co.uk>
 Group:		Applications/Publishing/SGML
 Source0:	http://dl.sourceforge.net/jadetex/%{name}-%{version}.tar.gz
-# Source0-md5: 634dfc172fbf66a6976e2c2c60e2d198
+# Source0-md5:	634dfc172fbf66a6976e2c2c60e2d198
 Patch1:		%{name}-latin2.patch
 URL:		http://jadetex.sourceforge.net/
 BuildRequires:	tetex-csplain
