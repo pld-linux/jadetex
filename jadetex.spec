@@ -22,18 +22,13 @@ TeX output files and processing them as LaTeX files.
 %patch0 -p1 
 
 %build
+
+# hack jadetex to process latin2
+ cp -f %{SOURCE1} ./jadetex.dtx
+
 tex jadetex.ins 
 # 'echo' is temporary fix for some latex errors
 # they are not important and can be ignored
-echo | tex -ini "&hugelatex" -progname=jadetex jadetex.ini || :
-echo | pdftex -ini "&pdflatex" -progname=pdfjadetex pdfjadetex.ini || :
-
-# backup original files
-install -d orig && mv -f *.fmt *.ltx orig
-
-# now build latin2 jadetex
-cp -f %{SOURCE1} ./jadetex.dtx
-tex jadetex.ins
 echo | tex -ini "&hugelatex" -progname=jadetex jadetex.ini || :
 echo | pdftex -ini "&pdflatex" -progname=pdfjadetex pdfjadetex.ini || :
 
@@ -45,19 +40,20 @@ install -d $RPM_BUILD_ROOT%{_datadir}/texmf/{web2c,tex/jadetex} \
 
 cp jadetex.1 pdfjadetex.1 ${RPM_BUILD_ROOT}%{_mandir}/man1 
 # orig
-mv orig/pdfjadetex.fmt orig/jadetex.fmt $RPM_BUILD_ROOT%{_datadir}/texmf/web2c
-cp dsssl.def orig/jadetex.ltx $RPM_BUILD_ROOT%{_datadir}/texmf/tex/jadetex
+mv pdfjadetex.fmt jadetex.fmt $RPM_BUILD_ROOT%{_datadir}/texmf/web2c
+cp dsssl.def jadetex.ltx $RPM_BUILD_ROOT%{_datadir}/texmf/tex/jadetex
+
 # latin2
-mv pdfjadetex.fmt $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/pdfjadetexl2.fmt
-mv jadetex.fmt    $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/jadetexl2.fmt
-cp jadetex.ltx    $RPM_BUILD_ROOT%{_datadir}/texmf/tex/jadetex/jadetexl2.ltx
+#mv pdfjadetex.fmt $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/pdfjadetexl2.fmt
+#mv jadetex.fmt    $RPM_BUILD_ROOT%{_datadir}/texmf/web2c/jadetexl2.fmt
+#cp jadetex.ltx    $RPM_BUILD_ROOT%{_datadir}/texmf/tex/jadetex/jadetexl2.ltx
 
 #ln -s virtex ${RPM_BUILD_ROOT}%{_bindir}/jadetex
 #ln -s pdfvirtex ${RPM_BUILD_ROOT}%{_bindir}/pdfjadetex
 ln -s tex ${RPM_BUILD_ROOT}%{_bindir}/jadetex
 ln -s pdftex ${RPM_BUILD_ROOT}%{_bindir}/pdfjadetex
-ln -s tex ${RPM_BUILD_ROOT}%{_bindir}/jadetexl2
-ln -s pdftex ${RPM_BUILD_ROOT}%{_bindir}/pdfjadetexl2
+#ln -s tex ${RPM_BUILD_ROOT}%{_bindir}/jadetexl2
+#ln -s pdftex ${RPM_BUILD_ROOT}%{_bindir}/pdfjadetexl2
 
 gzip -9nf ${RPM_BUILD_ROOT}%{_mandir}/man1/*
 
