@@ -5,11 +5,10 @@ Version:	3.13
 Release:	2
 License:	Copyright (C) 1995,1996,1997,1998,1999,2000,2001 Sebastian Rahtz <s.rahtz@elsevier.co.uk>
 Group:		Applications/Publishing/SGML
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/jadetex/%{name}-%{version}.tar.gz
 # Source0-md5: 634dfc172fbf66a6976e2c2c60e2d198
 Patch1:		%{name}-latin2.patch
 URL:		http://jadetex.sourceforge.net/
-Requires:	tetex-pdftex
 BuildRequires:	tetex-csplain
 BuildRequires:	tetex-fonts-cmcyr
 BuildRequires:	tetex-fonts-jknappen
@@ -30,6 +29,7 @@ PreReq:		sh-utils
 Requires:	sgml-common
 %requires_eq	tetex
 %requires_eq	tetex-latex
+Requires:	tetex-pdftex
 AutoReqProv:	no
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -54,12 +54,13 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/texmf/{web2c,tex/jadetex} \
 	   $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
-cp jadetex.1 pdfjadetex.1 ${RPM_BUILD_ROOT}%{_mandir}/man1
+install jadetex.1 pdfjadetex.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-ln -s tex ${RPM_BUILD_ROOT}%{_bindir}/jadetex
-ln -s pdftex ${RPM_BUILD_ROOT}%{_bindir}/pdfjadetex
+ln -s tex $RPM_BUILD_ROOT%{_bindir}/jadetex
+ln -s pdftex $RPM_BUILD_ROOT%{_bindir}/pdfjadetex
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -74,6 +75,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog ChangeLog-old
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/texmf/web2c/*
+%{_datadir}/texmf/web2c/*.fmt
 %{_datadir}/texmf/tex/jadetex
 %{_mandir}/man1/*
