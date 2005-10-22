@@ -7,6 +7,7 @@ License:	Copyright (C) 1995,1996,1997,1998,1999,2000,2001 Sebastian Rahtz <s.rah
 Group:		Applications/Publishing/SGML
 Source0:	http://dl.sourceforge.net/jadetex/%{name}-%{version}.tar.gz
 # Source0-md5:	634dfc172fbf66a6976e2c2c60e2d198
+Patch0:		%{name}-latex.patch
 Patch1:		%{name}-latin2.patch
 URL:		http://jadetex.sourceforge.net/
 BuildRequires:	tetex-csplain
@@ -19,18 +20,19 @@ BuildRequires:	tetex-format-plain
 BuildRequires:	tetex-latex-ams
 BuildRequires:	tetex-latex-carlisle
 BuildRequires:	tetex-latex-cyrillic
+BuildRequires:	tetex-latex-marvosym
 BuildRequires:	tetex-latex-psnfss
 BuildRequires:	tetex-metafont
 BuildRequires:	tetex-pdftex
 BuildRequires:	tetex-tex-babel
 BuildRequires:	tetex-tex-ruhyphen
 BuildRequires:	tetex-tex-ukrhyph
+AutoReqProv:	no
 PreReq:		sh-utils
 Requires:	sgml-common
 %requires_eq	tetex
 %requires_eq	tetex-latex
 Requires:	tetex-pdftex
-AutoReqProv:	no
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,6 +46,7 @@ otrzymanych z Jade TeXa i przetworzenia ich jako plików LaTeXa.
 
 %prep
 %setup -q
+%patch0 -p1
 %patch1 -p1
 
 %build
