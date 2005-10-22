@@ -1,0 +1,11 @@
+--- jadetex-3.13/Makefile.orig	2005-10-22 20:21:57.513773968 +0200
++++ jadetex-3.13/Makefile	2005-10-22 20:17:00.027998680 +0200
+@@ -4,7 +4,7 @@
+ 	tex jadetex.ins
+ 
+ jadetex.fmt: basic
+-	tex -ini -progname=jadetex "&latex" jadetex.ini
++	latex -ini -progname=jadetex "&latex" jadetex.ini
+ 
+ pdfjadetex.fmt: basic
+ 	pdftex -ini -progname=pdfjadetex "&pdflatex" pdfjadetex.ini
