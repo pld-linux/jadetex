@@ -63,8 +63,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/texmf/{web2c,tex/jadetex} \
 
 install jadetex.1 pdfjadetex.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-ln -s tex $RPM_BUILD_ROOT%{_bindir}/jadetex
-ln -s pdftex $RPM_BUILD_ROOT%{_bindir}/pdfjadetex
+ln -s pdfetex $RPM_BUILD_ROOT%{_bindir}/jadetex
+ln -s pdfetex $RPM_BUILD_ROOT%{_bindir}/pdfjadetex
 
 %clean
 rm -rf $RPM_BUILD_ROOT
