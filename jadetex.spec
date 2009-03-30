@@ -2,7 +2,7 @@ Summary:	LaTeX macros for converting Jade TeX output into DVI/PS/PDF
 Summary(pl.UTF-8):	Makra LaTeXa do konwersji Jade TeXa do DVI/PS/PDF
 Name:		jadetex
 Version:	3.13
-Release:	7
+Release:	8
 License:	Copyright (C) 1995,1996,1997,1998,1999,2000,2001 Sebastian Rahtz <s.rahtz@elsevier.co.uk>
 Group:		Applications/Publishing/SGML
 Source0:	http://dl.sourceforge.net/jadetex/%{name}-%{version}.tar.gz
@@ -10,30 +10,20 @@ Source0:	http://dl.sourceforge.net/jadetex/%{name}-%{version}.tar.gz
 Patch0:		%{name}-latex.patch
 Patch1:		%{name}-latin2.patch
 URL:		http://jadetex.sourceforge.net/
-BuildRequires:	tetex >= 1:3.0-2
-BuildRequires:	tetex-csplain
-BuildRequires:	tetex-fonts-cmcyr
-BuildRequires:	tetex-fonts-jknappen
-BuildRequires:	tetex-format-latex
-BuildRequires:	tetex-format-pdflatex
-BuildRequires:	tetex-format-pdftex
-BuildRequires:	tetex-format-plain
-BuildRequires:	tetex-latex-ams
-BuildRequires:	tetex-latex-carlisle
-BuildRequires:	tetex-latex-cyrillic
-BuildRequires:	tetex-latex-marvosym
-BuildRequires:	tetex-latex-psnfss
-BuildRequires:	tetex-metafont
-BuildRequires:	tetex-pdftex
-BuildRequires:	tetex-tex-babel
-BuildRequires:	tetex-tex-ruhyphen
-BuildRequires:	tetex-tex-ukrhyph
-AutoReqProv:	no
-PreReq:		sh-utils
+BuildRequires:	texlive-fonts-jknappen
+BuildRequires:	texlive-latex-ams
+BuildRequires:	texlive-latex-extend
+BuildRequires:	texlive-latex-marvosym
+BuildRequires:	texlive-latex-psnfss
+BuildRequires:	texlive-latex-wasysym
+BuildRequires:	texlive-omega
+BuildRequires:	texlive-xetex
 Requires:	sgml-common
-%requires_eq	tetex
-%requires_eq	tetex-latex
-Requires:	tetex-pdftex
+Requires:	sh-utils
+AutoReqProv:	no
+%requires_eq	texlive
+%requires_eq	texlive-latex
+Requires:	texlive-pdftex
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
