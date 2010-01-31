@@ -11,6 +11,7 @@ Patch0:		%{name}-latex.patch
 Patch1:		%{name}-latin2.patch
 URL:		http://jadetex.sourceforge.net/
 BuildRequires:	texlive-fonts-jknappen
+BuildRequires:	texlive-format-pdflatex
 BuildRequires:	texlive-latex-ams
 BuildRequires:	texlive-latex-extend
 BuildRequires:	texlive-latex-marvosym
@@ -24,8 +25,8 @@ AutoReqProv:	no
 %requires_eq	texlive
 %requires_eq	texlive-latex
 Requires:	texlive-pdftex
-Provides:	texlive-jadetex = %{version}-%{release}
 Provides:	tetex-jadetex = %{version}-%{release}
+Provides:	texlive-jadetex = %{version}-%{release}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
